@@ -8,7 +8,7 @@ Python web scraper & automation toolkit built for freelance automation work.
 
 - Scrapes websites (static HTML — no JS required)
 - Cleans and structures extracted data
-- Exports to CSV / Excel
+- Exports to CSV or Excel
 - Supports multi-page pagination
 - Runs from CLI — no UI needed
 
@@ -23,10 +23,11 @@ Python web scraper & automation toolkit built for freelance automation work.
 
 ```
 silkforge/
-├── scraper.py        # core scraping logic
-├── parser.py         # data extraction & cleaning
-├── exporter.py       # CSV/Excel output
 ├── config.py         # settings & targets
+├── scraper.py        # HTTP fetching + pagination
+├── parser.py         # BeautifulSoup data extraction
+├── exporter.py       # CSV/Excel output via pandas
+├── main.py           # CLI entrypoint
 ├── requirements.txt
 └── output/           # scraped data lands here
 ```
@@ -34,12 +35,29 @@ silkforge/
 ## Quickstart
 
 ```bash
-# install deps
+# create and activate virtual environment
+python -m venv .venv
+.venv\Scripts\activate
+
+# install dependencies
 pip install -r requirements.txt
 
-# run scraper
-python scraper.py --url <target> --pages 5 --output data.csv
+# run scraper (all 50 pages, CSV output)
+python main.py
+
+# options
+python main.py --pages 5                        # scrape 5 pages only
+python main.py --output mydata.csv              # custom filename
+python main.py --format excel --output data     # export as .xlsx
 ```
+
+## CLI options
+
+| Flag | Short | Default | Description |
+|------|-------|---------|-------------|
+| `--pages` | `-p` | 50 | Number of pages to scrape |
+| `--output` | `-o` | books.csv | Output filename |
+| `--format` | `-f` | csv | Export format: `csv` or `excel` |
 
 ## Use cases (freelance services)
 
@@ -49,6 +67,10 @@ python scraper.py --url <target> --pages 5 --output data.csv
 - Lead list generation
 - Scheduled data pipelines
 
+## License
+
+MIT — see [LICENSE](LICENSE)
+
 ## Author
 
-[@UnknownEpsilon001](https://github.com/UnknownEpsilon001) — Python automation & scripting
+Leo (Unknown Aimo) — [@UnknownEpsilon001](https://github.com/UnknownEpsilon001)

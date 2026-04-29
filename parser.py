@@ -9,12 +9,11 @@ def parse_page(html):
     soup = BeautifulSoup(html, "html.parser")
     books = []
 
-    # TODO: find all book containers (hint: article.product_pod)
     for article in soup.find_all("article", class_="product_pod"):
         book = {
-            "title": article.h3.a["title"],   
-            "price": article.find("p", class_="price_color").text.strip(),   
-            "rating": RATING_MAP[article.p["class"][1]],
+            "title": article.h3.a["title"],
+            "price": article.find("p", class_="price_color").text.strip(),
+            "rating": RATING_MAP.get(article.p["class"][1], 0),
             "available": article.find("p", class_="instock availability").text.strip(),
         }
         books.append(book)
