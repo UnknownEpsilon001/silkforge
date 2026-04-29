@@ -14,9 +14,26 @@ def parse_args():
     return parser.parse_args()
 
 
+BANNER = r"""
+  _____ _ _ _     __
+ / ____(_) | |   / _|
+| (___  _| | | _| |_ ___  _ __ __ _  ___
+ \___ \| | | |/ /  _/ _ \| '__/ _` |/ _ \
+ ____) | | |   <| || (_) | | | (_| |  __/
+|_____/|_|_|_|\_\_| \___/|_|  \__, |\___|
+                                __/ |
+  web scraper toolkit          |___/  v1.0
+"""
+
+
 def main():
     args = parse_args()
-    print("Starting silkforge scraper...")
+    print(BANNER)
+    print(f"  target  : books.toscrape.com")
+    print(f"  pages   : {args.pages}")
+    print(f"  output  : {args.output}")
+    print(f"  format  : {args.format}")
+    print("-" * 40)
 
     pages = get_all_pages(max_pages=args.pages)
     books = parse_all(pages)
