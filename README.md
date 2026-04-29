@@ -4,13 +4,15 @@
 
 Python web scraper & automation toolkit built for freelance automation work.
 
+> ⚠️ **Target site:** This scraper is built specifically for [books.toscrape.com](https://books.toscrape.com/catalogue/) — a practice/sandbox site designed for scraping. It will **not** work on other websites without modifying `parser.py` to match the target site's HTML structure.
+
 ## What it does
 
-- Scrapes websites (static HTML — no JS required)
-- Cleans and structures extracted data
+- Scrapes [books.toscrape.com](https://books.toscrape.com/catalogue/) (all 50 pages, 1000 books)
+- Extracts title, price, star rating, and availability per book
 - Exports to CSV or Excel
-- Supports multi-page pagination
-- Runs from CLI — no UI needed
+- Supports pagination and partial scraping via CLI flags
+- Streamlit UI for demo / portfolio purposes
 
 ## Tech stack
 
@@ -18,6 +20,7 @@ Python web scraper & automation toolkit built for freelance automation work.
 - `beautifulsoup4` — HTML parsing
 - `pandas` — data cleaning & export
 - `python-dotenv` — config management
+- `streamlit` — demo UI
 
 ## Project structure
 
@@ -28,6 +31,7 @@ silkforge/
 ├── parser.py         # BeautifulSoup data extraction
 ├── exporter.py       # CSV/Excel output via pandas
 ├── main.py           # CLI entrypoint
+├── app.py            # Streamlit UI (demo)
 ├── requirements.txt
 └── output/           # scraped data lands here
 ```
@@ -49,6 +53,9 @@ python main.py
 python main.py --pages 5                        # scrape 5 pages only
 python main.py --output mydata.csv              # custom filename
 python main.py --format excel --output data     # export as .xlsx
+
+# run Streamlit UI
+streamlit run app.py
 ```
 
 ## CLI options
@@ -59,13 +66,14 @@ python main.py --format excel --output data     # export as .xlsx
 | `--output` | `-o` | books.csv | Output filename |
 | `--format` | `-f` | csv | Export format: `csv` or `excel` |
 
-## Use cases (freelance services)
+## Output columns
 
-- Product price monitoring
-- E-commerce catalog extraction
-- News / article archiving
-- Lead list generation
-- Scheduled data pipelines
+| Column | Example |
+|--------|---------|
+| title | A Light in the Attic |
+| price | £51.77 |
+| rating | 3 |
+| available | In stock |
 
 ## License
 
