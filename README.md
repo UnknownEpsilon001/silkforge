@@ -75,6 +75,10 @@ streamlit run app.py
 | rating | 3 |
 | available | In stock |
 
+## Support
+
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/unknownaimo)
+
 ## License
 
 MIT — see [LICENSE](LICENSE)
