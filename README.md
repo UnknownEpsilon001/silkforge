@@ -1,5 +1,7 @@
 # silkforge 🕷️
 
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/unknownaimo)
+
 > Turn raw web data into clean, structured output. Spider the web, forge the data.
 
 Python web scraper & automation toolkit built for freelance automation work.
@@ -74,10 +76,6 @@ streamlit run app.py
 | price | £51.77 |
 | rating | 3 |
 | available | In stock |
-
-## Support
-
-[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/unknownaimo)
 
 ## License
 
